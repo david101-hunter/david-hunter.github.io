@@ -61,7 +61,7 @@ onUnmounted(() => {
       <h2>Mùa xuân đến rồi!</h2>
       <p>Cây cối đâm chồi, nảy lộc...</p>
       <img
-        src="http://laichau.edu.vn/upload/35826/fck/lcu-sinho-thcschannua/2024_01_31_02_38_081.jpg"
+        src="https://lh4.googleusercontent.com/proxy/8Ah2z6LmvH3e8d0b467ruWBOpg4Idj9vpXxwRLdGgF8AOlZrbGrJ6Q6nVLW9uNSF5IDxRj1o9IIccOqaZCkjoyi633TjY6BOFlVlCH4Jd4GlPmVxE-Z4DQpylAUbXf68kdyJPk3z_GQ"
         alt="Cây cối mùa xuân đang nảy mầm"
         class="spring-image"
       />
