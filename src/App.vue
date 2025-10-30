@@ -1,8 +1,10 @@
 <script setup>
-
 import { ref, onMounted, onUnmounted } from "vue";
 import VsnowComponent from "./components/VsnowComponent.vue";
 import ButterflyEffect from "./components/ButterflyEffect.vue";
+import PhuongFlowerEffect from "./components/PhuongFlowerEffect.vue";
+import SunSparkleEffect from "./components/SunSparkleEffect.vue";
+import AutumnLeafEffect from "./components/AutumnLeafEffect.vue";
 
 const mainWrapper = ref(null);
 const springSection = ref(null);
@@ -10,6 +12,9 @@ const summerSection = ref(null);
 const autumnSection = ref(null);
 const showSnow = ref(true);
 const showButterfly = ref(false);
+const showPhuongFlower = ref(false);
+const showSunSparkle = ref(false);
+const showAutumnLeaf = ref(false);
 
 function handleScroll() {
   const springRect = springSection.value.getBoundingClientRect();
@@ -21,25 +26,33 @@ function handleScroll() {
     mainWrapper.value.style.backgroundColor = "#c97b4d"; // Mùa thu (cam vàng)
     showSnow.value = false;
     showButterfly.value = false;
+    showPhuongFlower.value = false; // Removed duplicate import
+    showSunSparkle.value = false; // Removed duplicate import
+      showAutumnLeaf.value = true;
   } else if (summerRect.top < viewportHeight / 2 && summerRect.bottom > viewportHeight / 2) {
     mainWrapper.value.style.backgroundColor = "#fde68a"; // Mùa hạ
     showSnow.value = false;
     showButterfly.value = false;
+    showPhuongFlower.value = true;
+    showSunSparkle.value = true;
+      showAutumnLeaf.value = false;
   } else if (springRect.top < viewportHeight / 2 && springRect.bottom > viewportHeight / 2) {
     mainWrapper.value.style.backgroundColor = "#a7f3d0"; // Mùa xuân
     showSnow.value = false;
     showButterfly.value = true;
+    showPhuongFlower.value = false;
+    showSunSparkle.value = false;
+      showAutumnLeaf.value = false;
   } else {
-    mainWrapper.value.style.backgroundColor = "#2c3e50"; // Mùa đông
-    showSnow.value = true;
-    showButterfly.value = false;
+    // Removed duplicate imports
+      showAutumnLeaf.value = false;
   }
 }
 
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
-  // Gọi lần đầu để set hiệu ứng đúng khi load trang
-  handleScroll();
+  // Removed duplicate ref declarations
+  handleScroll(); // Call handleScroll initially
 });
 
 onUnmounted(() => {
@@ -50,6 +63,9 @@ onUnmounted(() => {
 <template>
   <div class="main-wrapper" ref="mainWrapper">
     <ButterflyEffect v-if="showButterfly" />
+    <PhuongFlowerEffect v-if="showPhuongFlower" />
+    <SunSparkleEffect v-if="showSunSparkle" />
+    <AutumnLeafEffect v-if="showAutumnLeaf" />
     <!-- Phần Mùa Đông -->
     <section class="winter-section">
       <VsnowComponent v-if="showSnow" />
@@ -98,13 +114,7 @@ onUnmounted(() => {
     </section>
   </div>
 </template>
-
 <style>
-
-body {
-  font-family: sans-serif;
-  scroll-behavior: smooth; /* Cuộn mượt (tùy chọn) */
-}
 
 #app {
   max-width: none;
@@ -238,9 +248,8 @@ body {
   font-size: 1.1em;
   margin-bottom: 30px;
 }
-</style>
-
 body {
   font-family: sans-serif;
   scroll-behavior: smooth; /* Cuộn mượt (tùy chọn) */
 }
+</style>
