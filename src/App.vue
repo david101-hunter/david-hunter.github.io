@@ -10,7 +10,7 @@ const mainWrapper = ref(null);
 const springSection = ref(null);
 const summerSection = ref(null);
 const autumnSection = ref(null);
-const showSnow = ref(true);
+// const showSnow = ref(true); // Không cần nữa
 const showButterfly = ref(false);
 const showPhuongFlower = ref(false);
 const showSunSparkle = ref(false);
@@ -24,28 +24,28 @@ function handleScroll() {
 
   if (autumnRect.top < viewportHeight / 2 && autumnRect.bottom > viewportHeight / 2) {
     mainWrapper.value.style.backgroundColor = "#808080"; // Mùa thu (cam vàng)
-    showSnow.value = false;
+  // showSnow không còn dùng
     showButterfly.value = false;
     showPhuongFlower.value = false; // Removed duplicate import
     showSunSparkle.value = false; // Removed duplicate import
     showAutumnLeaf.value = true;
   } else if (summerRect.top < viewportHeight / 2 && summerRect.bottom > viewportHeight / 2) {
     mainWrapper.value.style.backgroundColor = "#fde68a"; // Mùa hạ
-    showSnow.value = false;
+  // showSnow không còn dùng
     showButterfly.value = false;
     showPhuongFlower.value = true;
     showSunSparkle.value = true;
     showAutumnLeaf.value = false;
   } else if (springRect.top < viewportHeight / 2 && springRect.bottom > viewportHeight / 2) {
     mainWrapper.value.style.backgroundColor = "#a7f3d0"; // Mùa xuân
-    showSnow.value = false;
+  // showSnow không còn dùng
     showButterfly.value = true;
     showPhuongFlower.value = false;
     showSunSparkle.value = false;
     showAutumnLeaf.value = false;
   } else {
     mainWrapper.value.style.backgroundColor = "#2c3e50"; // Màu mùa đông mặc định
-    showSnow.value = true;
+  // showSnow không còn dùng
     showButterfly.value = false;
     showPhuongFlower.value = false;
     showSunSparkle.value = false;
@@ -66,7 +66,7 @@ onUnmounted(() => {
 
 <template>
   <div class="main-wrapper" ref="mainWrapper">
-    <VsnowComponent v-if="showSnow" />
+  <VsnowComponent />
     <ButterflyEffect v-if="showButterfly" />
     <PhuongFlowerEffect v-if="showPhuongFlower" />
     <SunSparkleEffect v-if="showSunSparkle" />
@@ -111,8 +111,7 @@ onUnmounted(() => {
       <h2>Mùa thu dịu dàng!</h2>
       <p>Lá vàng rơi, trời trong xanh...</p>
       <img
-        src="https://hoangphucphoto.com/wp-content/uploads/2023/12/anh-thu-1.jpeg"
-        alt="Mùa thu dịu dàng"
+        src="https://thothan.wordpress.com/wp-content/uploads/2012/11/an-autumn-leafbw.jpg"
         class="spring-image"
       />
     </section>
