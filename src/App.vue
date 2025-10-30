@@ -44,7 +44,11 @@ function handleScroll() {
     showSunSparkle.value = false;
     showAutumnLeaf.value = false;
   } else {
-    // Removed duplicate imports
+    mainWrapper.value.style.backgroundColor = "#2c3e50"; // Màu mùa đông mặc định
+    showSnow.value = true;
+    showButterfly.value = false;
+    showPhuongFlower.value = false;
+    showSunSparkle.value = false;
     showAutumnLeaf.value = false;
   }
 }
@@ -62,13 +66,13 @@ onUnmounted(() => {
 
 <template>
   <div class="main-wrapper" ref="mainWrapper">
+    <VsnowComponent v-if="showSnow" />
     <ButterflyEffect v-if="showButterfly" />
     <PhuongFlowerEffect v-if="showPhuongFlower" />
     <SunSparkleEffect v-if="showSunSparkle" />
     <AutumnLeafEffect v-if="showAutumnLeaf" />
     <!-- Phần Mùa Đông -->
     <section class="winter-section">
-      <VsnowComponent v-if="showSnow" />
       <div class="content">
         <h1>Chào mừng bạn!</h1>
         <p>Đây là hiệu ứng tuyết rơi.</p>
