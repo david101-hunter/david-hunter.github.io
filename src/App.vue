@@ -23,29 +23,29 @@ function handleScroll() {
   const viewportHeight = window.innerHeight;
 
   if (autumnRect.top < viewportHeight / 2 && autumnRect.bottom > viewportHeight / 2) {
-    mainWrapper.value.style.backgroundColor = "#c97b4d"; // Mùa thu (cam vàng)
+    mainWrapper.value.style.backgroundColor = "#808080"; // Mùa thu (cam vàng)
     showSnow.value = false;
     showButterfly.value = false;
     showPhuongFlower.value = false; // Removed duplicate import
     showSunSparkle.value = false; // Removed duplicate import
-      showAutumnLeaf.value = true;
+    showAutumnLeaf.value = true;
   } else if (summerRect.top < viewportHeight / 2 && summerRect.bottom > viewportHeight / 2) {
     mainWrapper.value.style.backgroundColor = "#fde68a"; // Mùa hạ
     showSnow.value = false;
     showButterfly.value = false;
     showPhuongFlower.value = true;
     showSunSparkle.value = true;
-      showAutumnLeaf.value = false;
+    showAutumnLeaf.value = false;
   } else if (springRect.top < viewportHeight / 2 && springRect.bottom > viewportHeight / 2) {
     mainWrapper.value.style.backgroundColor = "#a7f3d0"; // Mùa xuân
     showSnow.value = false;
     showButterfly.value = true;
     showPhuongFlower.value = false;
     showSunSparkle.value = false;
-      showAutumnLeaf.value = false;
+    showAutumnLeaf.value = false;
   } else {
     // Removed duplicate imports
-      showAutumnLeaf.value = false;
+    showAutumnLeaf.value = false;
   }
 }
 
@@ -115,7 +115,6 @@ onUnmounted(() => {
   </div>
 </template>
 <style>
-
 #app {
   max-width: none;
   width: 100%;
